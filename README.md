@@ -36,8 +36,6 @@ create table departament(
     foreign key (Mgr_ssn) references employee(Ssn)
 );
 
--- 'def', 'company_constraints', 'departament_ibfk_1', 'company_constraints', 'departament', 'FOREIGN KEY', 'YES'
--- modificar uma constraint: drop e add
 alter table departament drop  departament_ibfk_1;
 alter table departament 
 		add constraint fk_dept foreign key(Mgr_ssn) references employee(Ssn)
@@ -92,16 +90,7 @@ create table dependent(
 
 show tables;
 desc dependent;
-
--- 1. Verifique os cabeçalhos e tipos de dados
-
--- 2. Modifique os valores monetários para o tipo double preciso
-
 alter table employee modify Salary double;
 
--- 3. Verifique a existência dos nulos e analise a remoção
-
--- 4. Os employees com nulos em Super_ssn podem ser os gerentes. Verifique se há algum colaborador sem gerente
-
 select count(*) from employee where Super_ssn is null;
--- Resultado: 1
+
